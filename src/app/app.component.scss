@@ -1,0 +1,31 @@
+:host {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.gap-block {
+  margin: 12px 0;
+}
+
+.request {
+  background: lightgray;
+  flex: 1 1 auto;
+}
+
+.controls {
+  display: flex;
+}
+
+
+.result {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  min-height: 500px;
+
+  textarea {
+    flex: 1 0 auto;
+  }
+}

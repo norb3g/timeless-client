@@ -1,0 +1,40 @@
+<div class="controls">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <select formControlName="type">
+      <option *ngFor="let type of types">{{type}}</option>
+    </select>
+    <div class="gap-block" formArrayName="weights">
+      <div *ngFor="let id of idsArray.controls; let i = index;">
+        <div>
+          <input type="number" [formControl]="toControl(id)">
+          <button (click)="removeId(i)">remove</button>
+        </div>
+      </div>
+      <button (click)="addId()">add id</button>
+    </div>
+    <div class="gap-block" formArrayName="weights">
+      <div *ngFor="let weight of weightsArray.controls; let i = index;">
+        <div [formGroupName]="i">
+          <select formControlName="key">
+            <option disabled value="">None</option>
+            <option *ngFor="let weightKey of weightKeys">{{weightKey}}</option>
+          </select>
+          <input type="number" formControlName="value">
+          <button (click)="removeWeight(i)">remove</button>
+        </div>
+      </div>
+      <button (click)="addWeight()">add weight</button>
+    </div>
+    <button>Submit</button>
+  </form>
+
+  <pre class="request">
+{{form.getRawValue() | json}}
+</pre>
+</div>
+
+<div class="result">
+  <span class="gap-block">Result:</span>
+  <textarea readonly [value]="result | async | json"></textarea>
+</div>
+
