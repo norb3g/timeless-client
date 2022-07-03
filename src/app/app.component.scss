@@ -10,7 +10,6 @@
 }
 
 .request {
-  background: lightgray;
   flex: 1 1 auto;
 }
 
@@ -27,5 +26,7 @@
 
   textarea {
     flex: 1 0 auto;
+    background: black;
+    color: wheat;
   }
 }

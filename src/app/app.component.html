@@ -6,8 +6,17 @@
     <div class="gap-block" formArrayName="weights">
       <div *ngFor="let id of idsArray.controls; let i = index;">
         <div>
+<!--          <select [formControl]="toControl(id)">-->
+<!--            <option disabled value="">None</option>-->
+<!--            <option *ngFor="let skillName of skillsNames | sort" [value]="skills[skillName]">{{skillName}}</option>-->
+<!--          </select>-->
+
+<!--          <button type="button" (click)="removeId(i)">remove</button>-->
+
           <input type="number" [formControl]="toControl(id)">
           <button (click)="removeId(i)">remove</button>
+
+<!--          //-->
         </div>
       </div>
       <button (click)="addId()">add id</button>
@@ -20,12 +29,12 @@
             <option *ngFor="let weightKey of weightKeys">{{weightKey}}</option>
           </select>
           <input type="number" formControlName="value">
-          <button (click)="removeWeight(i)">remove</button>
+          <button type="button" (click)="removeWeight(i)">remove</button>
         </div>
       </div>
-      <button (click)="addWeight()">add weight</button>
+      <button type="button" (click)="addWeight()">add weight</button>
     </div>
-    <button>Submit</button>
+    <button type="submit">Submit</button>
   </form>
 
   <pre class="request">
